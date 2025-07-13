@@ -9,6 +9,8 @@ import { BASE_URL } from '../utils/constants';
 export default function LoginPage() {
   const [emailId, setEmailId] = useState('narahari@gmail.com');
   const [password, setPassword] = useState('Narahari@2255');
+  const [error, setError] = useState('');
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -25,7 +27,7 @@ export default function LoginPage() {
       dispatch(addUser(res.data));
       return navigate('/');
     } catch (err) {
-      console.error(err);
+      setError(err?.response?.data);
     }
   };
 
@@ -54,6 +56,7 @@ export default function LoginPage() {
               />
             </fieldset>
           </div>
+          {error && <p className='text-red-500'>{error}</p>}
           <div className='card-actions justify-center my-2'>
             <button className='btn btn-primary' onClick={handleLogin}>
               Login
