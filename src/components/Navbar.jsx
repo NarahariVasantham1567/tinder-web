@@ -56,7 +56,7 @@ export default function Navbar() {
                 </Link>
               </li>
               <li>
-                <a>Settings</a>
+                <Link to='/connections'>Connections</Link>
               </li>
               <li>
                 <Link to='/login' onClick={handleLogout}>
