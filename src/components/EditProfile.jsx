@@ -9,8 +9,8 @@ export default function EditProfile({ user }) {
   const [firstName, setFirstName] = useState(user.firstName);
   const [lastName, setLastName] = useState(user.lastName);
   const [photoUrl, setPhotoUrl] = useState(user.photoUrl);
-  const [age, setAge] = useState(user.age);
-  const [gender, setGender] = useState(user.gender);
+  const [age, setAge] = useState(user.age || '');
+  const [gender, setGender] = useState(user.gender || '');
   const [about, setAbout] = useState(user.about);
   const [error, setError] = useState('');
 
@@ -32,7 +32,7 @@ export default function EditProfile({ user }) {
           withCredentials: true,
         }
       );
-      dispatch(addUser(res?.data?.data));
+      dispatch(addUser(res?.data));
     } catch (err) {
       setError(err.response.data);
     }
@@ -78,7 +78,7 @@ export default function EditProfile({ user }) {
                   type='number'
                   className='input'
                   value={age}
-                  onChange={(e) => setAge(parseInt(e.target.value))}
+                  onChange={(e) => setAge(e.target.value)}
                 />
               </fieldset>
               <fieldset className='fieldset my-2'>

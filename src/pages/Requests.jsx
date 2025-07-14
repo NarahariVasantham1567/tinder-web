@@ -26,7 +26,7 @@ export default function Requests() {
       const res = await axios.get(`${BASE_URL}/user/requests/recieved`, {
         withCredentials: true,
       });
-      dispatch(addRequest(res.data.data));
+      dispatch(addRequest(res.data));
     } catch (err) {
       console.error(err);
     }
@@ -43,7 +43,7 @@ export default function Requests() {
   return (
     <div className='text-center my-10'>
       <h1 className='font-bold text-2xl'>Requests</h1>
-      {requests.map((request) => {
+      {requests.data.map((request) => {
         const { firstName, lastName, photoUrl, age, gender, about } =
           request.fromUserId;
 

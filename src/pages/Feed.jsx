@@ -17,7 +17,7 @@ export default function FeedPage() {
       const res = await axios.get(`${BASE_URL}/feed`, {
         withCredentials: true,
       });
-      dispatch(addFeed(res?.data?.data));
+      dispatch(addFeed(res?.data));
     } catch (err) {
       setError(err?.response?.data);
     }

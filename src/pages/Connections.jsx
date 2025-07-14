@@ -13,7 +13,7 @@ export default function Connections() {
       const res = await axios.get(`${BASE_URL}/user/connections`, {
         withCredentials: true,
       });
-      dispatch(addConnections(res.data.data));
+      dispatch(addConnections(res.data));
     } catch (err) {
       console.log(err.message);
     }
@@ -30,7 +30,7 @@ export default function Connections() {
   return (
     <div className='text-center my-10'>
       <h1 className='font-bold text-2xl'>Conections</h1>
-      {connections.map((connection) => {
+      {connections.data.map((connection) => {
         const { firstName, lastName, photoUrl, age, gender, about } =
           connection;
 

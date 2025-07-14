@@ -21,7 +21,6 @@ export default function App() {
             <Route path='profile' element={<ProfilePage />} />
             <Route path='connections' element={<Connections />} />
             <Route path='requests' element={<Requests />} />
-            <Route path='signup' element={<SignupPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
