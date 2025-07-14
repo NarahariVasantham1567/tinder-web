@@ -17,7 +17,7 @@ export default function FeedPage() {
       const res = await axios.get(`${BASE_URL}/feed`, {
         withCredentials: true,
       });
-      dispatch(addFeed(res?.data));
+      dispatch(addFeed(res?.data?.data));
     } catch (err) {
       setError(err?.response?.data);
     }
@@ -26,6 +26,10 @@ export default function FeedPage() {
   useEffect(() => {
     getFeed();
   }, []);
+
+  if (!feed) return;
+
+  if (feed.length <= 0) return <h1>No new users found!</h1>;
 
   return (
     feed && (
