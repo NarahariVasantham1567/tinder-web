@@ -5,3 +5,5 @@ export { default as ProfilePage } from './Profile';
 export { default as FeedPage } from './Feed';
 export { default as Connections } from './Connections';
 export { default as Requests } from './Requests';
+export { default as PremiumPage } from './Premium';
+export { default as Chat } from './Chat';
